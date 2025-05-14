@@ -22,10 +22,25 @@
             <div class="col-lg-6 text-center text-lg-right">
                 <div class="d-inline-flex align-items-center">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My Account</button>
+                        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">
+                            <?php echo is_user_logged_in() ? 'My Account' : 'Login / Register'; ?>
+                        </button>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <button class="dropdown-item" type="button">Sign in</button>
-                            <button class="dropdown-item" type="button">Sign up</button>
+                            <?php if ( is_user_logged_in() ) : ?>
+                                <a class="dropdown-item" href="<?php echo esc_url( get_permalink( get_option('woocommerce_myaccount_page_id') ) ); ?>">
+                                    Account
+                                </a>
+                                <a class="dropdown-item" href="<?php echo esc_url( wp_logout_url( home_url() ) ); ?>">
+                                    Logout
+                                </a>
+                            <?php else : ?>
+                                <a class="dropdown-item" href="<?php echo esc_url( wc_get_page_permalink( 'myaccount' ) ); ?>">
+                                    Login
+                                </a>
+                                <a class="dropdown-item" href="<?php echo esc_url( wc_get_page_permalink( 'myaccount' ) ); ?>#register">
+                                    Register
+                                </a>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <div class="btn-group mx-2">
@@ -64,20 +79,20 @@
                 </a>
             </div>
             <div class="col-lg-4 col-6 text-left">
-                <form action="">
+                <form  method="get" action="<?php echo esc_url(home_url('/')); ?>">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for products">
-                        <div class="input-group-append">
+                        <input type="text" class="form-control" placeholder="Search for products" name="s" value="<?php echo esc_attr(get_search_query()); ?>">
+                        <button type="submit" class="input-group-append">
                             <span class="input-group-text bg-transparent text-primary">
                                 <i class="fa fa-search"></i>
                             </span>
-                        </div>
+                        </button>
                     </div>
                 </form>
             </div>
             <div class="col-lg-4 col-6 text-right">
                 <p class="m-0">Customer Service</p>
-                <h5 class="m-0">+012 345 6789</h5>
+                <a href="tel:+380551234567" class="m-0">+38 055 123 45 67</a>
             </div>
         </div>
     </div>
@@ -122,26 +137,19 @@
                             'walker' => new Wootheme_Menu_Navbar(),
                         ))
                         ?>
-                            <!-- <a href="index.html" class="nav-item nav-link active">Home</a>
-                            <a href="shop.html" class="nav-item nav-link">Shop</a>
-                            <a href="detail.html" class="nav-item nav-link">Shop Detail</a>
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down mt-1"></i></a>
-                                <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                                    <a href="cart.html" class="dropdown-item">Shopping Cart</a>
-                                    <a href="checkout.html" class="dropdown-item">Checkout</a>
-                                </div>
-                            </div>
-                            <a href="contact.html" class="nav-item nav-link">Contact</a> -->
                         </div>
                         <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
+                            <!-- Favorite -->
                             <a href="" class="btn px-0">
                                 <i class="fas fa-heart text-primary"></i>
                                 <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
                             </a>
-                            <a href="" class="btn px-0 ml-3">
+                            <!-- Cart -->
+                            <a href="<?php echo wc_get_cart_url(); ?>" class="btn px-0 ml-3">
                                 <i class="fas fa-shopping-cart text-primary"></i>
-                                <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
+                                <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">
+                                    <?php echo WC()->cart->get_cart_contents_count(); ?>
+                                </span>
                             </a>
                         </div>
                     </div>

@@ -36,12 +36,15 @@ register_nav_menus( array(
     'primary' => __( 'Primary Menu', 'wootheme' ),
     'category' => __( 'Category Menu', 'wootheme' ),
     'navbar' => __( 'Navbar Menu', 'wootheme' ),
+    'footer' => __( 'Footer Menu', 'wootheme' ),
+    'footer-shop' => __( 'Footer Shop Menu', 'wootheme' )
 ) );
 
 // WooCommerce
 require_once get_template_directory() . '/inc/woocommerce-hooks.php';
 require_once get_template_directory(). '/inc/class-wootheme-menu-categories.php';
 require_once get_template_directory(). '/inc/class-wootheme-menu-navbar.php';
+require_once get_template_directory(). '/inc/class-wootheme-menu-footer.php';
 
 // Debug
 function wootheme_debug( $data ) {

@@ -2,35 +2,40 @@
 <!-- Footer Start -->
 <div class="container-fluid bg-dark text-secondary mt-5 pt-5">
         <div class="row px-xl-5 pt-5">
-            <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
-                <h5 class="text-secondary text-uppercase mb-4">Get In Touch</h5>
-                <p class="mb-4">No dolore ipsum accusam no lorem. Invidunt sed clita kasd clita et et dolor sed dolor. Rebum tempor no vero est magna amet no</p>
-                <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>123 Street, New York, USA</p>
-                <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>info@example.com</p>
-                <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>+012 345 67890</p>
+            <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5 d-flex flex-column">
+                <a href="<?php echo home_url(); ?>" class="text-decoration-none">
+                    <span class="h1 text-uppercase text-primary bg-dark px-2 logo-border">Multi</span>
+                    <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1 logo-border">Shop</span>
+                </a>
+                <p class="mb-4 mt-4">No dolore ipsum accusam no lorem. Invidunt sed clita kasd clita et et dolor sed dolor. Rebum tempor no vero est magna amet no</p>
+                <a href="#" class="text-secondary mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>15 Doroshenka Street, Lviv, UA</a>
+                <a class="text-secondary mb-2"><i class="fa fa-envelope text-primary mr-3"></i>info@example.com</a>
+                <a href="tel:+380551234567" class="text-secondary mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>+38 055 123 45 67</a>
             </div>
             <div class="col-lg-8 col-md-12">
                 <div class="row">
                     <div class="col-md-4 mb-5">
-                        <h5 class="text-secondary text-uppercase mb-4">Quick Shop</h5>
+                        <h5 class="text-secondary text-uppercase mb-4">Menu</h5>
                         <div class="d-flex flex-column justify-content-start">
-                            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
-                            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Our Shop</a>
-                            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Shop Detail</a>
-                            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
-                            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Checkout</a>
-                            <a class="text-secondary" href="#"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+                            <?php wp_nav_menu(array(
+                                'theme_location' => 'footer',
+                                'container' => false,
+                                'items_wrap' => '%3$s',
+                                'walker' => new Wootheme_Menu_Footer(),
+                            ))
+                            ?>
                         </div>
                     </div>
                     <div class="col-md-4 mb-5">
-                        <h5 class="text-secondary text-uppercase mb-4">My Account</h5>
+                        <h5 class="text-secondary text-uppercase mb-4">Shop</h5>
                         <div class="d-flex flex-column justify-content-start">
-                            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
-                            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Our Shop</a>
-                            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Shop Detail</a>
-                            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
-                            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Checkout</a>
-                            <a class="text-secondary" href="#"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+                            <?php wp_nav_menu(array(
+                                'theme_location' => 'footer-shop',
+                                'container' => false,
+                                'items_wrap' => '%3$s',
+                                'walker' => new Wootheme_Menu_Footer(),
+                            ))
+                            ?>
                         </div>
                     </div>
                     <div class="col-md-4 mb-5">

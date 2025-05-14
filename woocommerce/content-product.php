@@ -56,7 +56,7 @@ if ( ! is_a( $product, WC_Product::class ) || ! $product->is_visible() ) {
 	 */
 	do_action( 'woocommerce_shop_loop_item_title' );
 
-    echo '<div class="wootheme-rating">';
+    echo '<div class="wootheme-rating mt-2">';
     // echo wc_get_rating_html( $product->get_average_rating() );
     woocommerce_template_loop_rating();
     if ( $rating_count = $product->get_rating_count() ) {

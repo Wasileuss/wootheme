@@ -2,6 +2,15 @@ html {
  scroll-behavior: smooth;
 }
 
+button {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background: none;
+}
+.logo-border {
+    border: 1px solid #FFD333;
+}
 .menu-primary {
  list-style: none;
  padding: 0;
@@ -23,6 +32,10 @@ html {
 
 .category-list a  {
    text-decoration: none;
+}
+
+.woocommerce {
+    width: 100%;
 }
 
 .product-img .attachment-woocommerce_thumbnail {
@@ -54,7 +67,12 @@ span.price del {
     font-size: 1rem;
 }
 
+.btn-outline-warning {
+    margin-top: 10px;
+}
+
 .add_to_cart_button.btn-outline-warning:hover,
+.product_type_grouped.btn-outline-warning:hover,
 .product_type_external.btn-outline-warning:hover {
     color: #fff !important;
 }
