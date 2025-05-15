@@ -27,6 +27,11 @@ function wootheme_scripts() {
     wp_enqueue_script( 'wootheme-easing', get_template_directory_uri(). '/assets/lib/easing/easing.min.js');
     wp_enqueue_script( 'wootheme-owlcarousel', get_template_directory_uri(). '/assets/lib/owlcarousel/owl.carousel.min.js');
     wp_enqueue_script( 'wootheme-main', get_template_directory_uri(). '/assets/js/main.js');
+    wp_enqueue_script( 'wootheme-cart', get_template_directory_uri(). '/assets/js/add-to-cart.js');
+
+    wp_localize_script('wootheme-cart', 'wc_cart_params', array(
+        'ajax_url' => admin_url('admin-ajax.php')
+    ));
 
 }
 add_action( 'wp_enqueue_scripts', 'wootheme_scripts' );
@@ -45,8 +50,23 @@ require_once get_template_directory() . '/inc/woocommerce-hooks.php';
 require_once get_template_directory(). '/inc/class-wootheme-menu-categories.php';
 require_once get_template_directory(). '/inc/class-wootheme-menu-navbar.php';
 require_once get_template_directory(). '/inc/class-wootheme-menu-footer.php';
+require_once get_template_directory(). '/inc/cpt.php';
 
 // Debug
 function wootheme_debug( $data ) {
     echo '<pre>' . print_r( $data, 1 ) . '</pre>';
 }
+
+add_action('wp_ajax_get_cart_count', 'get_cart_count_callback');
+add_action('wp_ajax_nopriv_get_cart_count', 'get_cart_count_callback');
+
+function get_cart_count_callback() {
+    echo WC()->cart->get_cart_contents_count();
+    wp_die();
+}
+
+// Update cart count
+// add_filter( 'woocommerce_add_to_cart_fragments', function( $fragments ) {
+//     $fragments['.cart-count'] = '<span class="cart-count badge text-dark border border-dark rounded-circle">' . WC()->cart->get_cart_contents_count() . '</span>';
+//     return $fragments;
+// });

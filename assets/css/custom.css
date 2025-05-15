@@ -165,3 +165,13 @@ span.price del {
     margin: 0 auto .5407911001em;
 }
 /* Star rating */
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cart-count {
+    padding-bottom: 2px;
+}
