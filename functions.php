@@ -24,10 +24,10 @@ function wootheme_scripts() {
 
     wp_enqueue_script( 'jquery');
     wp_enqueue_script( 'wootheme-bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js', array(), false, true);
-    wp_enqueue_script( 'wootheme-easing', get_template_directory_uri(). '/assets/lib/easing/easing.min.js');
-    wp_enqueue_script( 'wootheme-owlcarousel', get_template_directory_uri(). '/assets/lib/owlcarousel/owl.carousel.min.js');
-    wp_enqueue_script( 'wootheme-main', get_template_directory_uri(). '/assets/js/main.js');
-    wp_enqueue_script( 'wootheme-cart', get_template_directory_uri(). '/assets/js/add-to-cart.js');
+    wp_enqueue_script( 'wootheme-easing', get_template_directory_uri() . '/assets/lib/easing/easing.min.js', array(), false, true);
+    wp_enqueue_script( 'wootheme-owlcarousel', get_template_directory_uri() . '/assets/lib/owlcarousel/owl.carousel.min.js', array(), false, true);
+    wp_enqueue_script( 'wootheme-main', get_template_directory_uri() . '/assets/js/main.js', array(), false, true);
+    wp_enqueue_script( 'wootheme-cart', get_template_directory_uri() . '/assets/js/add-to-cart.js', array(), false, true);
 
     wp_localize_script('wootheme-cart', 'wc_cart_params', array(
         'ajax_url' => admin_url('admin-ajax.php')

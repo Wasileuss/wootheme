@@ -175,3 +175,40 @@ span.price del {
 .cart-count {
     padding-bottom: 2px;
 }
+
+.aws-container .aws-search-form {
+    height: 38px;
+}
+
+.aws-container .aws-search-form .aws-form-btn {
+    background: #fff;
+    border: 1px solid #ced4da;
+}
+
+.aws-container .aws-search-form .aws-form-btn:hover {
+    background: #ededed;
+}
+
+.aws-container .aws-search-form .aws-form-btn:hover > span {
+    color: #555;
+}
+
+.aws-container .aws-search-form .aws-search-btn_icon {
+    color: #FFD333;
+}
+
+
+.aws-container .aws-show-clear .aws-search-field {
+    padding-left: 15px;
+}
+
+nav.breadcrumb {
+    color: #6c757d;
+}
+nav.breadcrumb a {
+    color: #3D464D;
+}
+
+.woocommerce-products-header__title {
+    font-size: 1.25rem;
+}

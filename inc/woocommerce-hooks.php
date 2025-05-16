@@ -31,3 +31,16 @@ add_action('woocommerce_shop_loop_item_title', function () {
 
 // Remove rating
 remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5);
+
+// Change breadcrumb
+remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
+add_filter( 'woocommerce_breadcrumb_defaults', function() {
+	return array(
+		'delimiter'   => '&nbsp;/&nbsp;',
+		'wrap_before' => '<nav class="breadcrumb bg-light mb-30">',
+		'wrap_after'  => '</nav>',
+		'before'      => '',
+		'after'       => '',
+		'home'        => __( 'Home', 'wootheme' ),
+	);
+});

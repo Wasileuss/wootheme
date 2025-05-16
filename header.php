@@ -69,16 +69,17 @@
                 </a>
             </div>
             <div class="col-lg-4 col-6 text-left">
-                <form  method="get" action="<?php echo esc_url(home_url('/')); ?>">
+            <?php aws_get_search_form( true ); ?>
+                <!-- <form  method="get" action="<?php //echo esc_url(home_url('/')); ?>">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for products" name="s" value="<?php echo esc_attr(get_search_query()); ?>">
+                        <input type="text" class="form-control" placeholder="Search for products" name="s" value="<?php //echo esc_attr(get_search_query()); ?>">
                         <button type="submit" class="input-group-append">
                             <span class="input-group-text bg-transparent text-primary">
                                 <i class="fa fa-search"></i>
                             </span>
                         </button>
                     </div>
-                </form>
+                </form> -->
             </div>
             <div class="col-lg-4 col-6 text-right">
                 <p class="m-0">Customer Service</p>
@@ -111,7 +112,7 @@
             </div>
             <div class="col-lg-9">
                 <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-0">
-                    <a href="" class="text-decoration-none d-block d-lg-none">
+                    <a href="<?php echo home_url(); ?>" class="text-decoration-none d-block d-lg-none">
                         <span class="h1 text-uppercase text-dark bg-light px-2">Multi</span>
                         <span class="h1 text-uppercase text-light bg-primary px-2 ml-n1">Shop</span>
                     </a>
