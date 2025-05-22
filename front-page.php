@@ -43,24 +43,6 @@
                 <p><?php echo __( 'Slider Here', 'wootheme' ) ?></p>
             <?php endif; wp_reset_postdata(); ?>
         </div>
-            <!-- <div class="col-lg-4">
-                <div class="product-offer mb-30" style="height: 200px;">
-                    <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/img/offer-1.jpg" alt="">
-                    <div class="offer-text">
-                        <h6 class="text-white text-uppercase">Save 20%</h6>
-                        <h3 class="text-white mb-3">Special Offer</h3>
-                        <a href="" class="btn btn-primary">Shop Now</a>
-                    </div>
-                </div>
-                <div class="product-offer mb-30" style="height: 200px;">
-                    <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/img/offer-2.jpg" alt="">
-                    <div class="offer-text">
-                        <h6 class="text-white text-uppercase">Save 20%</h6>
-                        <h3 class="text-white mb-3">Special Offer</h3>
-                        <a href="" class="btn btn-primary">Shop Now</a>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </div>
     <!-- Carousel End -->
@@ -107,7 +89,7 @@
     <!-- Categories Start -->
     <div class="container-fluid pt-5">
         <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3"><?php _e('Categories', 'wootheme'); ?></span></h2>
-        <div class="row px-xl-5 pb-3">
+        <div class="row px-xl-5 pb-3 product-cats">
             <?php echo do_shortcode('[product_categories hide_empty="0"]');?>
         </div>
     </div>

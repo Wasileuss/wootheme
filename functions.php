@@ -5,8 +5,24 @@ function wootheme_setup() {
     add_theme_support( 'title-tag' );
     add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'woocommerce' );
+	add_theme_support( 'wc-product-gallery-zoom' );
+	add_theme_support( 'wc-product-gallery-lightbox' );
+	add_theme_support( 'wc-product-gallery-slider' );
 }
 add_action( 'after_setup_theme', 'wootheme_setup' );
+
+function wootheme_widgets_init() {
+	register_sidebar(
+		array(
+			'name' => esc_html__( 'Sidebar', 'wootheme' ),
+			'id' => 'sidebar-filters',
+			'description' => esc_html__( 'Add widgets here.', 'wootheme' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget' => '</section>',
+		)
+	);
+}
+add_action( 'widgets_init', 'wootheme_widgets_init' );
 
 add_action( 'wp_head', function() {
     echo '<link rel="preconnect" href="https://fonts.gstatic.com">';
@@ -27,11 +43,6 @@ function wootheme_scripts() {
     wp_enqueue_script( 'wootheme-easing', get_template_directory_uri() . '/assets/lib/easing/easing.min.js', array(), false, true);
     wp_enqueue_script( 'wootheme-owlcarousel', get_template_directory_uri() . '/assets/lib/owlcarousel/owl.carousel.min.js', array(), false, true);
     wp_enqueue_script( 'wootheme-main', get_template_directory_uri() . '/assets/js/main.js', array(), false, true);
-    wp_enqueue_script( 'wootheme-cart', get_template_directory_uri() . '/assets/js/add-to-cart.js', array(), false, true);
-
-    wp_localize_script('wootheme-cart', 'wc_cart_params', array(
-        'ajax_url' => admin_url('admin-ajax.php')
-    ));
 
 }
 add_action( 'wp_enqueue_scripts', 'wootheme_scripts' );
@@ -57,16 +68,8 @@ function wootheme_debug( $data ) {
     echo '<pre>' . print_r( $data, 1 ) . '</pre>';
 }
 
-add_action('wp_ajax_get_cart_count', 'get_cart_count_callback');
-add_action('wp_ajax_nopriv_get_cart_count', 'get_cart_count_callback');
-
-function get_cart_count_callback() {
-    echo WC()->cart->get_cart_contents_count();
-    wp_die();
-}
-
 // Update cart count
-// add_filter( 'woocommerce_add_to_cart_fragments', function( $fragments ) {
-//     $fragments['.cart-count'] = '<span class="cart-count badge text-dark border border-dark rounded-circle">' . WC()->cart->get_cart_contents_count() . '</span>';
-//     return $fragments;
-// });
+add_filter( 'woocommerce_add_to_cart_fragments', function( $fragments ) {
+    $fragments['.cart-count'] = '<span class="cart-count count badge text-dark border border-dark rounded-circle">' . WC()->cart->get_cart_contents_count() . '</span>';
+    return $fragments;
+});

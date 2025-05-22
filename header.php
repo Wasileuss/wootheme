@@ -50,11 +50,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="d-inline-flex align-items-center">
-                    <?php //woocommerce_mini_cart(); ?>
+                <div class="d-inline-flex align-items-center woocommerce-cart-fragments">
                     <a href="<?php echo wc_get_cart_url(); ?>" class="btn px-0 ml-2">
                         <i class="fas fa-shopping-cart text-dark"></i>
-                        <span class="cart-count badge text-dark border border-dark rounded-circle">
+                        <span class="cart-count count badge text-dark border border-dark rounded-circle">
                             <?php echo WC()->cart->get_cart_contents_count(); ?>
                         </span>
                     </a>

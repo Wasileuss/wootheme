@@ -44,3 +44,37 @@ add_filter( 'woocommerce_breadcrumb_defaults', function() {
 		'home'        => __( 'Home', 'wootheme' ),
 	);
 });
+
+// Remove notices
+remove_action('woocommerce_before_shop_loop', 'woocommerce_output_all_notices', 10);
+
+// Remove sidebar from product page
+add_action( 'template_redirect', function () {
+	if ( is_product() ) {
+		remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+	}
+} );
+
+// Remove sale flash from product page
+remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10 );
+
+// Remove related products from product page
+remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+
+// Remove upsell products from product page
+remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
+
+// Remove cross sell from product cart page
+remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display', 10 );
+
+// https://woocommerce.com/document/tutorial-customising-checkout-fields-using-actions-and-filters/
+add_filter( 'woocommerce_default_address_fields', function ( $fields ) {
+	unset( $fields['address_2'] );
+
+	return $fields;
+} );
+
+// https://wpbeaches.com/filter-woocommerce-place-order-text-button-in-checkout-page/
+add_filter( 'woocommerce_order_button_html', function ( $button ) {
+	return str_replace( 'button alt', 'button alt btn btn-block btn-primary font-weight-bold py-3', $button );
+} );
