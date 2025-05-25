@@ -43,12 +43,12 @@
                             <?php endif; ?>
                         </div>
                     </div>
-                    <div class="btn-group">
+                    <!-- <div class="btn-group">
                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">EN</button>
                         <div class="dropdown-menu dropdown-menu-right">
                             <button class="dropdown-item" type="button">UA</button>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="d-inline-flex align-items-center woocommerce-cart-fragments">
                     <a href="<?php echo wc_get_cart_url(); ?>" class="btn px-0 ml-2">
