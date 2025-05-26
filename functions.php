@@ -62,6 +62,8 @@ require_once get_template_directory(). '/inc/class-wootheme-menu-categories.php'
 require_once get_template_directory(). '/inc/class-wootheme-menu-navbar.php';
 require_once get_template_directory(). '/inc/class-wootheme-menu-footer.php';
 require_once get_template_directory(). '/inc/cpt.php';
+require_once get_template_directory(). '/inc/zoho.php';
+require_once get_template_directory(). '/inc/hubspot.php';
 
 // Debug
 function wootheme_debug( $data ) {
@@ -73,3 +75,13 @@ add_filter( 'woocommerce_add_to_cart_fragments', function( $fragments ) {
     $fragments['.cart-count'] = '<span class="cart-count count badge text-dark border border-dark rounded-circle">' . WC()->cart->get_cart_contents_count() . '</span>';
     return $fragments;
 });
+
+
+// add_action('init', function() {
+//     if (!get_option('zoho_refresh_token')) {
+//         update_option('zoho_refresh_token', '1000.ff1c7f44774707cd2b3cc89e897f04b6.ad0ca0bee8911d877e00b25825e1b7df');
+//         update_option('zoho_access_token', '1000.c8694c2cd84780787c6329da3e3c357e.986bdd313536a1348a708170eabb9d8e');
+//         update_option('zoho_token_created_at', time());
+//         error_log('Zoho tokens saved to wp_options');
+//     }
+// });

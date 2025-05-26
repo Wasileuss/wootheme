@@ -624,3 +624,101 @@ legend {
     margin-right: -5px;
     margin-left: -5px;
 }
+
+.wpcf7 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 800px;
+    height: 100%;
+    margin: 0 auto;
+    font-size: 16px;
+    padding: 40px;
+    border-radius: 20px;
+    background-color: #3D464D;
+
+    @media (max-width: 575px) {
+        padding: 20px 10px;
+    }
+}
+
+.wpcf7-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.wpcf7-form-control-wrap {
+    width: 100%;
+}
+
+.wpcf7-form-control:not(.form__button) {
+    color: #3D464D;
+    background-color: #f4f4f4;
+}
+
+.wpcf7-form-control {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border-top: 1px solid #FFFFFF2B;
+    border-right: 1px solid #FFFFFF2B;
+    border-bottom: none;
+    border-left: none;
+}
+
+.wpcf7-form-control::placeholder {
+    color: #3D464D;
+}
+
+.wpcf7-form-control:focus::placeholder {
+    color: transparent;
+}
+
+.wpcf7-form-control.wpcf7-textarea.form__textarea  {
+        min-height: 50px;
+        max-height: 200px;
+        height: 100px;
+        background-color: #f4f4f4;
+        border-top: 1px solid #FFFFFF2B;
+        border-right: 1px solid #FFFFFF2B;
+    }
+
+.wpcf7-submit {
+    background-color: #FFD333;
+    border: none;
+    padding: 15px 20px;
+    color: #3D464D;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out 0ms;
+
+    @media (any-hover: hover) {
+        &:hover {
+            background-color: #ffc800;
+        }
+    }
+}
+
+.wpcf7 form .wpcf7-response-output {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    border-color: transparent;
+	border: none;
+}
+
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.failed .wpcf7-response-output,
+.wpcf7 form.unaccepted .wpcf7-response-output,
+.wpcf7 form.payment-required .wpcf7-response-output {
+    border: none;
+    color: #dc3232;
+}
+
+.wpcf7 form.sent .wpcf7-response-output {
+    border: none;
+    color: #46b450;
+}
